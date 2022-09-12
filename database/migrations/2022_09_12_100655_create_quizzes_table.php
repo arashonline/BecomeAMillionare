@@ -15,6 +15,9 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('user_id');
+            $table->bigInteger('total_point');
+            $table->string('status','64')->comment('INITIAL,PROCESSING,FAILED,DONE');
             $table->timestamps();
         });
     }
