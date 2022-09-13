@@ -15,10 +15,12 @@ class CreateQuizzesTable extends Migration
     {
         Schema::create('quizzes', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('user_id');
+            $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('total_point');
             $table->string('status','64')->comment('INITIAL,PROCESSING,FAILED,DONE');
             $table->timestamps();
+
+            $table->foreign('user_id','quiz_user_id')->references('id')->on('users');
         });
     }
 

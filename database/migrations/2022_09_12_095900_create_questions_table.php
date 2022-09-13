@@ -16,10 +16,10 @@ class CreateQuestionsTable extends Migration
         Schema::create('questions', function (Blueprint $table) {
             $table->id();
             $table->string('title','512');
-            $table->bigInteger('user_id');
             $table->integer('points',false,true)->default(10);
             $table->timestamps();
         });
+
     }
 
     /**
