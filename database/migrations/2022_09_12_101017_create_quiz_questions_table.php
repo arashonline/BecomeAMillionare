@@ -17,7 +17,8 @@ class CreateQuizQuestionsTable extends Migration
             $table->id();
             $table->bigInteger('question_id')->unsigned();
             $table->bigInteger('quiz_id')->unsigned();
-            $table->bigInteger('selected_answer_id')->unsigned();
+            $table->bigInteger('selected_answer_id')->unsigned()->nullable();
+            $table->tinyInteger('got_answer')->default(0);
             $table->integer('points')->default(0);
             $table->timestamps();
 

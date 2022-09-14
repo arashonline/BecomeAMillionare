@@ -1,8 +1,6 @@
 <?php
 
-/**
- * Created by Reliese Model.
- */
+
 
 namespace App\Models;
 
@@ -43,6 +41,10 @@ class Question extends Model
 	{
 		return $this->hasMany(Answer::class);
 	}
+	public function correctAnswer()
+	{
+		return $this->hasOne(Answer::class)->where('is_correct','=','1');
+	}
 
 	public function quizzes()
 	{
@@ -50,4 +52,5 @@ class Question extends Model
 					->withPivot('id', 'selected_answer_id', 'points')
 					->withTimestamps();
 	}
+
 }

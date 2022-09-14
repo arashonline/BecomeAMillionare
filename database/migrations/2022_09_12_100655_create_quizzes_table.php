@@ -17,6 +17,7 @@ class CreateQuizzesTable extends Migration
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->bigInteger('total_point');
+            $table->bigInteger('is_highest');
             $table->string('status','64')->comment('INITIAL,PROCESSING,FAILED,DONE');
             $table->timestamps();
 
