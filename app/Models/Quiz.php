@@ -3,8 +3,6 @@
 
 namespace App\Models;
 
-use App\Http\Resources\QuestionIndexResource;
-use App\Http\Resources\QuestionShowResource;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;

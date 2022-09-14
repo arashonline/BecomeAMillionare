@@ -19,7 +19,7 @@
                 <div class="checkboxes-wrapper" class="center">
                     @foreach($quiz->availableQuestion()->answers as $answer)
                         <div>
-                            <input type="radio" id="{{$answer->id}}" name="answer" value="{{$answer->id}}">
+                            <input type="radio" id="{{$answer->id}}" name="answer" required value="{{$answer->id}}">
                             <label for="{{$answer->id}}">{{$answer->title}}</label>
                         </div>
 

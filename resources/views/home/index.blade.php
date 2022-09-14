@@ -15,6 +15,7 @@
         @endguest
         <div class="content">
             <h2>Top scores</h2>
+            @if(count($topScores))
             <table class="table">
                 <thead>
                 <tr>
@@ -33,6 +34,13 @@
                 @endforeach
                 </tbody>
             </table>
+            @else
+                <div class="card">
+                    <div class="card-body">
+                        <h3>BE THE FIRST ONE TO PLAY</h3>
+                    </div>
+                </div>
+            @endif
 
         </div>
     </div>
