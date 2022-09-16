@@ -56,3 +56,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
         Route::post('/be-a-millionaire', 'QuizController@validation')->name('quiz.validate');
     });
 });
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
