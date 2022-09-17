@@ -1,0 +1,13 @@
+.remove-answer {
+    position: absolute;
+    color: red;
+    border: 1px solid red;
+    border-radius: 20px;
+    width: 20px;
+    text-align: center;
+    height: 20px;
+    line-height: 15px;
+    top: 9px;
+    left: -17px;
+    cursor: pointer;
+}

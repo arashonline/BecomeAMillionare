@@ -60,4 +60,8 @@ Route::group(['namespace' => 'App\Http\Controllers'], function()
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
+//    todo:add middleware for authenticated users
+    Route::post('submit-answer','App\Http\Controllers\Admin\QuestionController@submitAnswer')->name('admin/submit-answer');
+    Route::post('remove-answer','App\Http\Controllers\Admin\QuestionController@removeAnswer')->name('admin/remove-answer');
+    Route::post('update-answer','App\Http\Controllers\Admin\QuestionController@updateAnswer')->name('admin/update-answer');
 });

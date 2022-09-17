@@ -37,6 +37,8 @@ class Question extends Model
 		'points'
 	];
 
+//    public $additional_attributes = ['correct_answer'];
+
 	public function answers()
 	{
 		return $this->hasMany(Answer::class);
@@ -52,5 +54,35 @@ class Question extends Model
 					->withPivot('id', 'selected_answer_id', 'points')
 					->withTimestamps();
 	}
+
+//    public function getCorrectAnswer()
+//    {
+//        return boolval($this->correctAnswer());
+//    }
+
+    public function addAnswer($title,$is_correct = false){
+	    $answer = new Answer(['title'=>$title,'question_id'=>$this->id,'is_correct'=>($is_correct?1:0)]);
+	    $answer->save();
+	    if($answer->is_correct){
+	        return $this->checkCorrectAnswer($answer->id);
+        }
+	    return $this->answers()->get();
+    }
+    public function removeAnswer($answerId){
+	    foreach ($this->answers as $answer){
+	        if($answer->id == $answerId){
+	            $answer->delete();
+            }
+        }
+	    return $this->answers()->get();
+    }
+
+    public function checkCorrectAnswer(int $id)
+    {
+        $this->answers()->whereNotIn('id',[$id])->update(['is_correct'=>0]);
+        $this->answers()->where('id','=',$id)->update(['is_correct'=>1]);
+        return $this->answers()->get();
+    }
+
 
 }
