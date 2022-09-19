@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
-class UserSeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,6 +17,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $user = User::factory()->count(50)->create(['role_id'=>2]);
+        $user = User::factory()->count(3)->create(['role_id'=>1,'password'=>'admin123']);
+        $user = User::factory()->count(1)->create(['role_id'=>1,'name'=>'admin','email'=>'admin@std.com','username'=>'std-admin','password'=>'admin123']);
     }
 }

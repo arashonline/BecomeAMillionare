@@ -54,6 +54,34 @@ class DataTypesTableSeeder extends Seeder
                 'description'           => '',
             ])->save();
         }
+        $dataType = $this->dataType('slug', 'questions');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'questions',
+                'display_name_singular' => __('Question'),
+                'display_name_plural'   => __('Questions'),
+                'icon'                  => null,
+                'model_name'            => 'App\Models\Question',
+                'controller'            => null,
+                'generate_permissions'  => 1,
+                'description'           => '',
+                'details'           => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+            ])->save();
+        }
+        $dataType = $this->dataType('slug', 'answers');
+        if (!$dataType->exists) {
+            $dataType->fill([
+                'name'                  => 'answers',
+                'display_name_singular' => __('Answer'),
+                'display_name_plural'   => __('Answers'),
+                'icon'                  => null,
+                'model_name'            => 'App\Models\Answer',
+                'controller'            => null,
+                'generate_permissions'  => 1,
+                'description'           => '',
+                'details'           => '{"order_column":null,"order_display_column":null,"order_direction":"asc","default_search_key":null,"scope":null}',
+            ])->save();
+        }
     }
 
     /**

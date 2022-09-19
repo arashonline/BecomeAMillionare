@@ -31,11 +31,11 @@ class User extends \TCG\Voyager\Models\User
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-protected $table = 'users';
+    protected $table = 'users';
 
-	protected $dates = [
-		'email_verified_at'
-	];
+    protected $dates = [
+        'email_verified_at'
+    ];
 
     /**
      * The attributes that are mass assignable.
@@ -80,25 +80,26 @@ protected $table = 'users';
         $this->attributes['password'] = bcrypt($value);
     }
 
-   public function quizzes()
-   	{
-   		return $this->hasMany(Quiz::class);
-   	}
+    public function quizzes()
+    {
+        return $this->hasMany(Quiz::class);
+    }
 
-   public function activeQuiz()
-   	{
-   		return $this->hasOne(Quiz::class)->where('status','=',Quiz::STATUS_PROCESSING);
-   	}
+    public function activeQuiz()
+    {
+        return $this->hasOne(Quiz::class)->where('status', '=', Quiz::STATUS_PROCESSING);
+    }
 
     public function generateQuiz()
     {
-        $quiz = new Quiz(['user_id'=>$this->id,'status'=>Quiz::STATUS_PROCESSING,'total_point'=>0]);
+        $quiz = new Quiz(['user_id' => $this->id, 'status' => Quiz::STATUS_PROCESSING, 'total_point' => 0]);
         $quiz->save();
         $quiz->allocateQuestions();
         return $quiz;
     }
 
-    public function fullname(){
-        return $this->name.' '.$this->surname;
+    public function fullname()
+    {
+        return $this->name . ' ' . $this->surname;
     }
 }

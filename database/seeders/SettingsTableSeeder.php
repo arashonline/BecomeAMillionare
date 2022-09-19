@@ -15,8 +15,8 @@ class SettingsTableSeeder extends Seeder
         $setting = $this->findSetting('site.title');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.title'),
-                'value'        => __('voyager::seeders.settings.site.title'),
+                'display_name' => __('STD TEST'),
+                'value'        => __('STD TEST'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -27,8 +27,8 @@ class SettingsTableSeeder extends Seeder
         $setting = $this->findSetting('site.description');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.site.description'),
-                'value'        => __('voyager::seeders.settings.site.description'),
+                'display_name' => __('STD TEST'),
+                'value'        => __('STD TEST'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
@@ -75,8 +75,8 @@ class SettingsTableSeeder extends Seeder
         $setting = $this->findSetting('admin.title');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.title'),
-                'value'        => 'Voyager',
+                'display_name' => __('STD TEST'),
+                'value'        => __('STD TEST'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 1,
@@ -87,8 +87,8 @@ class SettingsTableSeeder extends Seeder
         $setting = $this->findSetting('admin.description');
         if (!$setting->exists) {
             $setting->fill([
-                'display_name' => __('voyager::seeders.settings.admin.description'),
-                'value'        => __('voyager::seeders.settings.admin.description_value'),
+                'display_name' => __('STD TEST'),
+                'value'        => __('STD TEST admin'),
                 'details'      => '',
                 'type'         => 'text',
                 'order'        => 2,
