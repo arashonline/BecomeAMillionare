@@ -30,18 +30,25 @@ mine was:
 
 `DB_PASSWORD=stdtest`
 
+`APP_URL=http://localhost:8000` or something like this
+just remember to enter url completely
+
 then run following commands
 
 `composer install` to install required packages
 
-`php artisan migrate` to generate tables
-
-to add some fake data in db you need to run
-
-`php artisan db:seed`
+`php artisan migrate:fresh --seed` to generate tables and admin panel and import some data
 
 And finally run 
 
 `php artisan serve`
+
+you can access admin panel using
+
+APP_URL/admin
+
+admin email:`admin@std.co`
+
+admin password:`admin123`
 
 
